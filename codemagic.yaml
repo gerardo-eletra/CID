@@ -1,0 +1,14 @@
+# Customize the codemagic.yml file according to your project and commit it to the root of your repository
+# Check out https://docs.codemagic.io/getting-started/yaml for more information
+workflows:
+  gerardoWorkflow-workflow:
+    name: Testing CI/CD
+    scripts:
+      - name: CI/CD Started
+        script: echo "Welcome to your CICD setup!"
+      - name: Build project
+        script: xcodebuild build -project "CID.xcodeproj" -scheme "CID" CODE_SIGNING_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+    publishing:
+      email: 
+        recipients:
+        - gerardo.bautistac@elektra.com.mx
