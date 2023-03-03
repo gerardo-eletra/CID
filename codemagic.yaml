@@ -9,11 +9,10 @@ workflows:
       - name: Build project
         script: xcodebuild build -project "CID.xcodeproj" -scheme "CID" CODE_SIGNING_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
      - name: iOS test
-        script: | 
+        script: |
           xcode-project run-tests \
-           --workspace MyAwesomeApp.xcworkspace \
-           --scheme MyAwesomeApp \
-           --device "iPhone 11"
+           --project "CID.xcodeproj" \
+           --scheme CIDTests
         test_report: build/ios/test/*.xml
    publishing:
       email: 
